@@ -1,0 +1,2 @@
+module GallerysControllerHelper
+end
