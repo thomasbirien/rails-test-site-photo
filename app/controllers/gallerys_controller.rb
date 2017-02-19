@@ -13,12 +13,22 @@ class GallerysController < ApplicationController
 
   def create
     @gallery = Gallery.new(gallery_params)
+    if @gallery.save
+      redirect_to gallery_path(@gallery)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @gallery.update(gallery_params)
+      redirect_to gallery_path(@gallery)
+    else
+      render :edit
+    end
   end
 
   def destroy
